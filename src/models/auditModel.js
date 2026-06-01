@@ -1,5 +1,5 @@
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 
 export const saveToStorage = (key, data) => localStorage.setItem(key, JSON.stringify(data));
 export const getFromStorage = (key, defaultValue) => JSON.parse(localStorage.getItem(key)) || defaultValue;
@@ -16,7 +16,7 @@ export const exportToPDF = (metadata, checklist) => {
   doc.text("INFORME DE AUDITORÍA - LFPDPP", 14, 20);
 
   // Tabla 1: Datos Generales (Encabezado superior)
-  doc.autoTable({
+  autoTable(doc, {
     startY: 28,
     head: [['Concepto', 'Información']],
     body: [
@@ -38,7 +38,7 @@ export const exportToPDF = (metadata, checklist) => {
     .map(item => [item.nombre, item.hallazgo]);
 
   // Tabla 2: Detalle de Hallazgos Operativos
-  doc.autoTable({
+  autoTable(doc, {
     startY: doc.lastAutoTable.finalY + 12, // Se posiciona dinámicamente debajo de la tabla anterior
     head: [['Reactivo Evaluado', 'Descripción del Hallazgo']],
     body: tableData.length > 0 ? tableData : [['N/A', 'No se detectaron desviaciones ni hallazgos en esta auditoría.']],
