@@ -13,9 +13,9 @@ export const exportToPDF = (metadata, checklist) => {
   // Título Principal del Reporte
   doc.setFontSize(16);
   doc.setFont("helvetica", "bold");
-  doc.text("INFORME DE AUDITORÍA - LFPDPP", 14, 20);
+  doc.text("INFORME DE AUDITORÍA - ISO 27001", 14, 20);
 
-  // Tabla 1: Datos Generales (Encabezado superior)
+  // Tabla 1: Datos Generales 
   autoTable(doc, {
     startY: 28,
     head: [['Concepto', 'Información']],
@@ -44,7 +44,7 @@ export const exportToPDF = (metadata, checklist) => {
     body: tableData.length > 0 ? tableData : [['N/A', 'No se detectaron desviaciones ni hallazgos en esta auditoría.']],
     theme: 'grid',
     styles: { font: 'helvetica', fontSize: 9, cellPadding: 5 },
-    headStyles: { fillColor: [28, 28, 30], textColor: [255, 255, 255] } // Paleta macOS Dark neutra
+    headStyles: { fillColor: [28, 28, 30], textColor: [255, 255, 255] } 
   });
 
   // Ejecuta la descarga directa en el navegador
