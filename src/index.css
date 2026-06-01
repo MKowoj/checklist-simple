@@ -45,3 +45,47 @@ input[type="text"]:focus { border-color: var(--focus-ring); }
 table { width: 100%; border-collapse: collapse; margin-top: 20px; }
 th, td { border: 1px solid var(--border-color); padding: 12px; text-align: left; font-size: 14px; }
 th { background-color: var(--bg-panel); color: var(--text-muted); }
+
+/* Tarjetas de Categorías (Acordeones) */
+.categoria-card {
+  margin-bottom: 12px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1a1a1c;
+}
+
+.categoria-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background-color: #242426;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.categoria-header:hover {
+  background-color: #333336;
+}
+
+.categoria-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e0e0e0;
+}
+
+.toggle-icon {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: bold;
+}
+
+.categoria-content {
+  padding: 16px 20px;
+  border-top: 1px solid #333;
+}
